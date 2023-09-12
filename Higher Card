@@ -1,0 +1,40 @@
+value_dict = {'2' : 2,
+             '3' : 3,
+             '4' : 4,
+             '5' : 5,
+             '6' : 6,
+             '7' : 7,
+             '8' : 8,
+             '9' : 9,
+             'T' : 10,
+             'J' : 11,
+             'Q' : 12,
+             'K' : 13,
+             'A' : 14}
+
+#Highest Card
+for x in range(len(p1)):
+    temp_1 = []
+    temp_2 = []
+    for card in p1[x]:
+        temp_1.append(list(card))
+    
+    for card in p2[x]:
+        temp_2.append(list(card))
+
+    v1 = value_dict[temp_1[0][0]]
+    v2 = value_dict[temp_2[0][0]]
+    for card in temp_1:
+        if value_dict[card[0]] > v1:
+            v1 = value_dict[card[0]]
+        
+    for card in temp_2:
+        if value_dict[card[0]] > v2:
+            v2 = value_dict[card[0]]
+            
+    if v1 > v2:
+        print('Player 1 has a greater hand')
+    if v1 < v2:
+        print('Player 2 has a greater hand')
+    if v1 == v2:
+        print('Both have the same value')
